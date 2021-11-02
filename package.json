@@ -1,10 +1,9 @@
 {
   "name": "nestjs-dataloader-example",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "description": "A sample project to demonstrate how to use GraphQL dataloder with NestJS",
+  "author": "Kasun Vithanage",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
