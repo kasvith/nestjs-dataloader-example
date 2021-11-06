@@ -21,4 +21,5 @@ export const cats: ICat[] = [
   { id: 2, name: 'Leo', ownerId: 2 },
   { id: 3, name: 'Milo', ownerId: 1 },
   { id: 4, name: 'Garfield', ownerId: 3 },
+  { id: 5, name: 'Charlie', ownerId: 1 },
 ];

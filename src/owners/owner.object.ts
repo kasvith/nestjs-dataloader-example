@@ -2,7 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { IOwner } from '../db';
 
 @ObjectType()
-export class Cat implements IOwner {
+export class Owner implements IOwner {
   @Field(() => ID, { description: 'ID of the owner' })
   id: number;
 
