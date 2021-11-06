@@ -1,4 +1,11 @@
-import { Args, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Context,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver,
+} from '@nestjs/graphql';
 import { Owner } from 'src/owners/owner.object';
 import { Cat } from './cat.object';
 import { CatsService } from './cats.service';
@@ -16,8 +23,8 @@ export class CatsResolver {
     description: 'Owner of the cat',
     nullable: true,
   })
-  getOwner(@Parent() cat: Cat) {
-    return this.ownersService.findOwnerById(cat.ownerId);
+  getOwner(@Parent() cat: Cat, @Context() { loaders }: IGraphQLContext) {
+    return loaders.ownersLoader.load(cat.ownerId);
   }
 
   @Query(() => Cat, {
