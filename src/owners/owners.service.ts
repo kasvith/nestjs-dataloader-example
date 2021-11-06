@@ -8,6 +8,17 @@ export class OwnersService {
     return owners.find((owner) => owner.id === id);
   }
 
+  findOwnersByBatch(ownerIds: number[]): (IOwner | Error)[] {
+    console.debug(`loading ids ${ownerIds}`);
+    const results = owners.filter((owner) => ownerIds.includes(owner.id));
+    const mappedResults = ownerIds.map(
+      (id) =>
+        results.find((result) => result.id === id) ||
+        new Error(`Could not load owner ${id}`),
+    );
+    return mappedResults;
+  }
+
   allOwners(): IOwner[] {
     console.debug(`loading all owners`);
     return owners;
